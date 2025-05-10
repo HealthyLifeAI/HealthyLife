@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HealthyLife</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <header>
+    <h1>HealthyLife</h1>
+    <p>Your AI personal trainer and nutrition expert</p>
+  </header>
+  <main>
+    <section class="intro">
+      <p>HealthyLife is your 24/7 expert guide to fitness and nutrition. Designed to help you become the healthiest version of yourself, with real, science-backed advice — always warm, human, and supportive.</p>
+      <button id="chat-button">Chat with HealthyLife</button>
+    </section>
+    <section id="chat" class="hidden">
+      <div id="chat-window"></div>
+      <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Type a message..." autocomplete="off" required />
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+  <script src="chat.js"></script>
+</body>
+</html>
