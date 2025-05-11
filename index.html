@@ -2,109 +2,104 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HealthyLife</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthyLife – Your AI Wellness Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #ffffff;
+      background: #f9fbfa;
       color: #1a1a1a;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
+      overflow-x: hidden;
     }
 
     .header {
-      background: #e6f4ec;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      background: #e0f4ea;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
     .logo {
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: 800;
       color: #2e7d5e;
       cursor: pointer;
     }
 
     .hero {
-      background: linear-gradient(120deg, #c3f2d1 0%, #e9fdf1 100%);
-      padding: 4rem 2rem;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(120deg, #d4f8e8 0%, #f3fff9 100%);
       text-align: center;
-      border-radius: 16px;
-      margin: 3rem auto;
-      max-width: 1000px;
     }
 
-    .hero-text h1 {
+    .hero h1 {
       font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
       color: #1a3d2c;
+      margin-bottom: 1rem;
     }
 
-    .hero-text p {
+    .hero p {
       font-size: 1.25rem;
-      color: #333;
-      margin-bottom: 2rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      color: #444;
     }
 
     .cta-button {
-      background-color: #2e7d5e;
+      background: #2e7d5e;
       color: white;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
+      padding: 1rem 2rem;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
+      font-size: 1.2rem;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s;
     }
 
     .cta-button:hover {
-      background-color: #245e49;
+      background: #245e49;
     }
 
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 2rem;
+      padding: 4rem 2rem;
+      background: #ffffff;
     }
 
-    .benefit {
-      background: #f4f7f5;
-      padding: 2rem;
+    .feature {
+      background: #f0fdf5;
       border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      padding: 2rem;
+      flex: 1 1 300px;
+      max-width: 400px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
     }
 
-    .benefit h3 {
+    .feature h3 {
       color: #2e7d5e;
       margin-bottom: 1rem;
+    }
+
+    .feature p {
+      color: #555;
     }
 
     .chat-fullscreen {
@@ -112,8 +107,8 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       background: #ffffff;
       z-index: 2000;
       display: flex;
@@ -121,63 +116,60 @@
     }
 
     .chat-header {
-      padding: 1rem 2rem;
       background: #2e7d5e;
       color: white;
+      padding: 1.5rem 2rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      font-size: 1.2rem;
     }
 
     .chat-messages {
       flex: 1;
+      padding: 1rem;
       overflow-y: auto;
-      padding: 1.5rem;
-      background: #f0f4f2;
+      background: #f6f9f8;
     }
 
-    .message {
+    .bubble {
       max-width: 70%;
-      padding: 0.75rem 1rem;
-      margin-bottom: 1rem;
+      margin: 0.5rem 0;
+      padding: 1rem;
       border-radius: 20px;
-      clear: both;
+      font-size: 1rem;
     }
 
-    .message.user {
-      background: #d0f0dc;
+    .user {
+      background: #d1f2e0;
       align-self: flex-end;
-      margin-left: auto;
-      text-align: right;
     }
 
-    .message.bot {
-      background: white;
+    .bot {
+      background: #ffffff;
       align-self: flex-start;
-      margin-right: auto;
-      text-align: left;
+      border: 1px solid #d4dcd7;
     }
 
     .chat-input {
       display: flex;
-      padding: 1rem 2rem;
-      background: #ffffff;
-      border-top: 1px solid #ccc;
-      gap: 0.5rem;
+      padding: 1rem;
+      border-top: 1px solid #ddd;
+      background: #fff;
     }
 
     .chat-input input {
       flex: 1;
       padding: 0.75rem 1rem;
+      border-radius: 20px;
       border: 1px solid #ccc;
-      border-radius: 999px;
     }
 
     .chat-input button {
+      margin-left: 0.5rem;
       padding: 0.75rem 1.5rem;
-      background-color: #2e7d5e;
-      color: white;
       border: none;
-      border-radius: 999px;
+      background: #2e7d5e;
+      color: white;
+      border-radius: 20px;
       cursor: pointer;
     }
   </style>
@@ -185,88 +177,84 @@
 
 <body>
   <header class="header">
-    <div class="header-content">
-      <div class="logo" id="logo">HealthyLife</div>
-    </div>
+    <div class="logo" id="logo">HealthyLife</div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Unlock Your Best Self</h1>
-        <p>Your personal AI expert in nutrition, fitness, and mental wellness. Chat naturally, learn deeply.</p>
-        <button class="cta-button" id="start-chat">Start Chatting</button>
-      </div>
-    </section>
+  <section class="hero">
+    <h1>Personal AI Wellness Assistant</h1>
+    <p>HealthyLife te guía con inteligencia artificial especializada en nutrición, deporte y salud mental, para que consigas tu mejor versión.</p>
+    <button class="cta-button" id="start-chat">Empieza a chatear</button>
+  </section>
 
-    <section class="benefits">
-      <div class="benefit">
-        <h3>Personalized Guidance</h3>
-        <p>Receive customized advice tailored to your goals, preferences, and habits.</p>
-      </div>
-      <div class="benefit">
-        <h3>All-in-One Platform</h3>
-        <p>Nutrition, fitness, and mental health advice—all in one place, powered by AI.</p>
-      </div>
-      <div class="benefit">
-        <h3>Seamless Experience</h3>
-        <p>Chat like you're texting a friend, but with the intelligence of a professional.</p>
-      </div>
-    </section>
-  </main>
+  <section class="features">
+    <div class="feature">
+      <h3>Consejos de Nutrición Verificados</h3>
+      <p>Recibe recomendaciones científicas para una dieta equilibrada, adaptadas a tu estilo de vida y objetivos.</p>
+    </div>
+    <div class="feature">
+      <h3>Entrenamiento Inteligente</h3>
+      <p>Diseña rutinas personalizadas según tu nivel físico, sin necesidad de gimnasio.</p>
+    </div>
+    <div class="feature">
+      <h3>Salud Mental y Mindfulness</h3>
+      <p>Ejercicios, técnicas y recomendaciones para cuidar tu mente y reducir el estrés.</p>
+    </div>
+  </section>
 
-  <section id="chat-screen" class="chat-fullscreen">
-    <div class="chat-header">HealthyLife Assistant</div>
+  <section class="chat-fullscreen" id="chat-container">
+    <div class="chat-header">HealthyLife – Chat</div>
     <div class="chat-messages" id="chat-messages"></div>
     <div class="chat-input">
-      <input type="text" id="chat-input-field" placeholder="Ask me anything...">
-      <button id="chat-send-button">Send</button>
+      <input type="text" id="user-input" placeholder="Escribe tu pregunta aquí...">
+      <button id="send-button">Enviar</button>
     </div>
   </section>
 
   <script>
-    const logo = document.getElementById('logo');
-    const chatScreen = document.getElementById('chat-screen');
-    const startChatButton = document.getElementById('start-chat');
-    const sendButton = document.getElementById('chat-send-button');
-    const chatInput = document.getElementById('chat-input-field');
+    const startChatBtn = document.getElementById('start-chat');
+    const chatContainer = document.getElementById('chat-container');
     const chatMessages = document.getElementById('chat-messages');
+    const sendButton = document.getElementById('send-button');
+    const userInput = document.getElementById('user-input');
+    const logo = document.getElementById('logo');
 
-    startChatButton.addEventListener('click', () => {
-      chatScreen.style.display = 'flex';
+    startChatBtn.addEventListener('click', () => {
+      chatContainer.style.display = 'flex';
+      window.scrollTo(0, 0);
     });
 
     logo.addEventListener('click', () => {
-      chatScreen.style.display = 'none';
+      chatContainer.style.display = 'none';
+      window.scrollTo(0, 0);
     });
 
     sendButton.addEventListener('click', sendMessage);
-    chatInput.addEventListener('keypress', (e) => {
+    userInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') sendMessage();
     });
 
     function sendMessage() {
-      const text = chatInput.value.trim();
-      if (!text) return;
+      const message = userInput.value.trim();
+      if (!message) return;
 
-      appendMessage('user', text);
-      chatInput.value = '';
+      appendMessage('user', message);
+      userInput.value = '';
 
       setTimeout(() => {
-        appendMessage('bot', generateReply(text));
-      }, 500);
+        appendMessage('bot', generateReply(message));
+      }, 600);
     }
 
     function appendMessage(sender, text) {
       const msg = document.createElement('div');
-      msg.className = `message ${sender}`;
+      msg.classList.add('bubble', sender);
       msg.textContent = text;
       chatMessages.appendChild(msg);
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
     function generateReply(input) {
-      return "I'm your HealthyLife assistant. Let's work on your wellness goals together!";
+      return "Soy tu asistente HealthyLife. ¡Cuéntame en qué quieres mejorar hoy!";
     }
   </script>
 </body>
