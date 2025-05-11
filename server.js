@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -9,7 +8,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const configuration = new Configuration({
-  apiKey: 'TU_API_KEY_DE_OPENAI', // ⚠️ Sustituye esto por tu clave
+  apiKey: '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', // 👈 Sustituye esto por tu clave real
 });
 const openai = new OpenAIApi(configuration);
 
@@ -36,3 +35,4 @@ app.post('/chat', async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor funcionando en http://localhost:${PORT}`));
+
