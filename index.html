@@ -1,265 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HealthyLife – Your AI Wellness Guide</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f9fbfa;
-      color: #1a1a1a;
-      overflow-x: hidden;
-    }
-
-    .header {
-      background: #e0f4ea;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #2e7d5e;
-      cursor: pointer;
-    }
-
-    .hero {
-      padding: 6rem 2rem 4rem;
-      background: linear-gradient(120deg, #d4f8e8 0%, #f3fff9 100%);
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      color: #1a3d2c;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      max-width: 800px;
-      margin: 0 auto 2rem;
-      color: #444;
-    }
-
-    .cta-button {
-      background: #2e7d5e;
-      color: white;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 12px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .cta-button:hover {
-      background: #245e49;
-    }
-
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      padding: 4rem 2rem;
-      background: #ffffff;
-    }
-
-    .feature {
-      background: #f0fdf5;
-      border-radius: 16px;
-      padding: 2rem;
-      flex: 1 1 300px;
-      max-width: 400px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    .feature h3 {
-      color: #2e7d5e;
-      margin-bottom: 1rem;
-    }
-
-    .feature p {
-      color: #555;
-    }
-
-    .chat-fullscreen {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #ffffff;
-      z-index: 2000;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .chat-header {
-      background: #2e7d5e;
-      color: white;
-      padding: 1.5rem 2rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-
-    .chat-messages {
-      flex: 1;
-      padding: 1rem;
-      overflow-y: auto;
-      background: #f6f9f8;
-    }
-
-    .bubble {
-      max-width: 70%;
-      margin: 0.5rem 0;
-      padding: 1rem;
-      border-radius: 20px;
-      font-size: 1rem;
-    }
-
-    .user {
-      background: #d1f2e0;
-      align-self: flex-end;
-    }
-
-    .bot {
-      background: #ffffff;
-      align-self: flex-start;
-      border: 1px solid #d4dcd7;
-    }
-
-    .chat-input {
-      display: flex;
-      padding: 1rem;
-      border-top: 1px solid #ddd;
-      background: #fff;
-    }
-
-    .chat-input input {
-      flex: 1;
-      padding: 0.75rem 1rem;
-      border-radius: 20px;
-      border: 1px solid #ccc;
-    }
-
-    .chat-input button {
-      margin-left: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      background: #2e7d5e;
-      color: white;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthyLife - Tu Asistente de Salud</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/901/901120.png" type="image/png">
 </head>
+<body class="bg-gray-50 text-gray-800 font-sans">
 
-<body>
-  <header class="header">
-    <div class="logo" id="logo">HealthyLife</div>
+  <!-- Header -->
+  <header class="bg-white shadow-md p-6">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-green-600">HealthyLife</h1>
+      <nav class="space-x-4">
+        <a href="#funciones" class="text-gray-600 hover:text-green-600">Funciones</a>
+        <a href="#ia" class="text-gray-600 hover:text-green-600">IA</a>
+        <a href="#contacto" class="text-gray-600 hover:text-green-600">Contacto</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h1>Personal AI Wellness Assistant</h1>
-    <p>HealthyLife te guía con inteligencia artificial especializada en nutrición, deporte y salud mental, para que consigas tu mejor versión.</p>
-    <button class="cta-button" id="start-chat">Empieza a chatear</button>
+  <!-- Hero -->
+  <section class="bg-gradient-to-r from-green-400 to-blue-500 text-white text-center py-24 px-6">
+    <h2 class="text-4xl font-bold mb-4">Tu Asistente Inteligente de Nutrición y Deporte</h2>
+    <p class="text-xl mb-8">Información fiable. Recomendaciones personalizadas. Tu bienestar, nuestra misión.</p>
+    <a href="#ia" class="bg-white text-green-600 font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition">
+      Descubre cómo funciona
+    </a>
   </section>
 
-  <section class="features">
-    <div class="feature">
-      <h3>Consejos de Nutrición Verificados</h3>
-      <p>Recibe recomendaciones científicas para una dieta equilibrada, adaptadas a tu estilo de vida y objetivos.</p>
-    </div>
-    <div class="feature">
-      <h3>Entrenamiento Inteligente</h3>
-      <p>Diseña rutinas personalizadas según tu nivel físico, sin necesidad de gimnasio.</p>
-    </div>
-    <div class="feature">
-      <h3>Salud Mental y Mindfulness</h3>
-      <p>Ejercicios, técnicas y recomendaciones para cuidar tu mente y reducir el estrés.</p>
-    </div>
-  </section>
-
-  <section class="chat-fullscreen" id="chat-container">
-    <div class="chat-header">HealthyLife – Chat</div>
-    <div class="chat-messages" id="chat-messages"></div>
-    <div class="chat-input">
-      <input type="text" id="user-input" placeholder="Escribe tu pregunta aquí...">
-      <button id="send-button">Enviar</button>
+  <!-- Funciones -->
+  <section id="funciones" class="py-20">
+    <div class="container mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center mb-12">¿Qué puede hacer HealthyLife por ti?</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold text-green-600 mb-2">Planificación Nutricional</h4>
+          <p>Recibe planes de alimentación personalizados basados en tus objetivos y necesidades.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold text-green-600 mb-2">Rutinas Deportivas Inteligentes</h4>
+          <p>Entrenamientos adaptados a tu nivel y progresión, con seguimiento de rendimiento.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold text-green-600 mb-2">Recomendaciones Médicas</h4>
+          <p>Consejos respaldados por estudios científicos y validados por profesionales.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <script>
-    const startChatBtn = document.getElementById('start-chat');
-    const chatContainer = document.getElementById('chat-container');
-    const chatMessages = document.getElementById('chat-messages');
-    const sendButton = document.getElementById('send-button');
-    const userInput = document.getElementById('user-input');
-    const logo = document.getElementById('logo');
+  <!-- IA en acción -->
+  <section id="ia" class="bg-gray-100 py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold mb-6">Inteligencia Artificial de Última Generación</h3>
+      <p class="max-w-3xl mx-auto mb-8">
+        HealthyLife utiliza modelos de IA entrenados con millones de datos clínicos y deportivos. Nuestra tecnología entiende tus necesidades, aprende de ti y te guía con precisión.
+      </p>
+      <img src="https://cdn-icons-png.flaticon.com/512/3063/3063827.png" alt="IA saludable" class="mx-auto w-32 opacity-80" />
+    </div>
+  </section>
 
-    startChatBtn.addEventListener('click', () => {
-      chatContainer.style.display = 'flex';
-      window.scrollTo(0, 0);
-    });
+  <!-- Contacto -->
+  <section id="contacto" class="py-20">
+    <div class="container mx-auto px-6 max-w-xl text-center">
+      <h3 class="text-3xl font-bold mb-4">¿Quieres ser parte de HealthyLife?</h3>
+      <p class="mb-6">Déjanos tu correo para recibir noticias, acceso anticipado y mucho más.</p>
+      <form class="flex flex-col sm:flex-row gap-4 justify-center">
+        <input type="email" placeholder="Tu email" class="flex-1 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400" required>
+        <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-500 transition">Enviar</button>
+      </form>
+    </div>
+  </section>
 
-    logo.addEventListener('click', () => {
-      chatContainer.style.display = 'none';
-      window.scrollTo(0, 0);
-    });
+  <!-- Footer -->
+  <footer class="bg-white border-t py-6 text-center text-sm text-gray-500">
+    © 2025 HealthyLife. Todos los derechos reservados.
+  </footer>
 
-    sendButton.addEventListener('click', sendMessage);
-    userInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') sendMessage();
-    });
-
-    function sendMessage() {
-      const message = userInput.value.trim();
-      if (!message) return;
-
-      appendMessage('user', message);
-      userInput.value = '';
-
-      setTimeout(() => {
-        appendMessage('bot', generateReply(message));
-      }, 600);
-    }
-
-    function appendMessage(sender, text) {
-      const msg = document.createElement('div');
-      msg.classList.add('bubble', sender);
-      msg.textContent = text;
-      chatMessages.appendChild(msg);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    function generateReply(input) {
-      return "Soy tu asistente HealthyLife. ¡Cuéntame en qué quieres mejorar hoy!";
-    }
-  </script>
 </body>
-
 </html>
+
 
 
 
