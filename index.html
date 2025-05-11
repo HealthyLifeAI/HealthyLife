@@ -4,54 +4,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HealthyLife</title>
+  <meta name="description" content="HealthyLife is your AI-powered health assistant for nutrition, fitness, and mental wellness." />
+  <title>HealthyLife | AI Wellness Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #ffffff;
-      color: #1a1a1a;
+    :root {
+      --primary: #2e7d5e;
+      --primary-dark: #245e49;
+      --bg-light: #f9fdfb;
+      --bg-accent: #e6f4ec;
+      --text-dark: #1a1a1a;
+      --text-light: #555;
     }
 
-    .header {
-      background: #e6f4ec;
-      padding: 1rem 2rem;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--bg-accent);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
     .logo {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 800;
-      color: #2e7d5e;
+      color: var(--primary);
     }
 
     .menu-button {
-      font-size: 1.5rem;
+      display: none;
+      font-size: 2rem;
       background: none;
       border: none;
       cursor: pointer;
-      color: #2e7d5e;
+      color: var(--primary);
     }
 
-    .sidebar {
+    aside.sidebar {
       position: fixed;
       top: 0;
       left: 0;
-      width: 240px;
-      height: 100%;
-      background: #f4f7f5;
-      padding: 2rem 1rem;
+      width: 250px;
+      height: 100vh;
+      background: var(--bg-light);
+      padding: 2rem 1.5rem;
       transform: translateX(-100%);
       transition: transform 0.3s ease;
       box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
@@ -63,7 +81,6 @@
 
     .sidebar nav ul {
       list-style: none;
-      padding: 0;
     }
 
     .sidebar nav ul li {
@@ -71,69 +88,71 @@
     }
 
     .sidebar nav ul li a {
-      color: #2e7d5e;
+      color: var(--primary);
       text-decoration: none;
       font-weight: 600;
     }
 
-    .main {
-      transition: margin-left 0.3s ease;
+    main {
       padding: 2rem;
+      max-width: 900px;
+      margin: auto;
     }
 
     .hero {
-      background: linear-gradient(120deg, #c3f2d1 0%, #e9fdf1 100%);
-      padding: 4rem 2rem;
-      text-align: center;
+      background: linear-gradient(135deg, #c3f2d1, #e9fdf1);
+      padding: 5rem 2rem;
       border-radius: 16px;
+      text-align: center;
       margin-bottom: 3rem;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    .hero-text h1 {
+    .hero h1 {
       font-size: 3rem;
+      color: #1a3d2c;
       font-weight: 800;
       margin-bottom: 1rem;
-      color: #1a3d2c;
     }
 
-    .hero-text p {
+    .hero p {
       font-size: 1.25rem;
-      color: #333;
+      color: var(--text-light);
       margin-bottom: 2rem;
     }
 
     .cta-button {
-      background-color: #2e7d5e;
+      background: var(--primary);
       color: white;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
       border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s ease;
     }
 
     .cta-button:hover {
-      background-color: #245e49;
+      background: var(--primary-dark);
     }
 
-    .chat-section {
-      max-width: 800px;
-      margin: 0 auto 3rem;
-      padding: 2rem;
-      border: 1px solid #ddd;
+    .chat-section,
+    .learn-section {
+      background: var(--bg-light);
       border-radius: 16px;
-      background: #fafafa;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
     }
 
     .chat-box {
       min-height: 300px;
-      padding: 1rem;
-      overflow-y: auto;
       background: white;
       border: 1px solid #ddd;
-      border-radius: 8px;
+      padding: 1rem;
+      overflow-y: auto;
       margin-bottom: 1rem;
+      border-radius: 8px;
     }
 
     .chat-input {
@@ -149,30 +168,58 @@
     }
 
     .chat-input button {
-      padding: 0.75rem 1rem;
-      background-color: #2e7d5e;
+      background: var(--primary);
       color: white;
       border: none;
+      padding: 0.75rem 1rem;
       border-radius: 8px;
       cursor: pointer;
     }
 
-    .article-content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem;
-      background: #f9fdfb;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    .user-message {
+      text-align: right;
+      margin: 0.5rem 0;
+      font-weight: 600;
+    }
+
+    .bot-message {
+      text-align: left;
+      margin: 0.5rem 0;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 768px) {
+      .menu-button {
+        display: block;
+      }
+
+      aside.sidebar {
+        width: 200px;
+      }
+
+      main {
+        padding: 1rem;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 
 <body>
-  <header class="header">
-    <div class="container header-content">
+  <header>
+    <div class="header-content">
       <div class="logo">HealthyLife</div>
-      <button id="menu-button" class="menu-button">☰</button>
+      <button id="menu-button" class="menu-button" aria-label="Menu">☰</button>
     </div>
   </header>
 
@@ -186,79 +233,54 @@
     </nav>
   </aside>
 
-  <main id="main-content" class="main">
-    <section id="hero" class="hero">
-      <div class="hero-text">
-        <h1>Unlock Your Best Self</h1>
-        <p>Your personal AI expert in nutrition, fitness, and mental wellness. Chat naturally, learn deeply.</p>
-        <button class="cta-button">Start Chatting</button>
-      </div>
+  <main>
+    <section class="hero">
+      <h1>Unlock Your Best Self</h1>
+      <p>Your personal AI expert in nutrition, fitness, and mental wellness. Chat naturally, learn deeply.</p>
+      <button class="cta-button" id="start-chatting">Start Chatting</button>
     </section>
 
-    <section id="chat-section" class="chat-section">
+    <section id="chat-section" class="chat-section" style="display: none;">
       <div id="chat-box" class="chat-box"></div>
-      <div id="chat-input" class="chat-input">
+      <div class="chat-input">
         <input type="text" id="user-input" placeholder="Ask me anything..." />
         <button id="send-button">Send</button>
       </div>
     </section>
 
-    <section id="learn-section" class="learn-section" style="display:none;">
-      <article id="article-content" class="article-content"></article>
+    <section id="learn-section" class="learn-section" style="display: none;">
+      <article id="article-content"></article>
     </section>
   </main>
 
   <script>
-    // Toggle sidebar menu
     const menuButton = document.getElementById('menu-button');
     const sidebar = document.getElementById('sidebar');
-    const mainContent = document.getElementById('main-content');
+    const links = document.querySelectorAll('.sidebar a');
+    const learnSection = document.getElementById('learn-section');
+    const articleContent = document.getElementById('article-content');
+    const startChatBtn = document.getElementById('start-chatting');
+    const chatSection = document.getElementById('chat-section');
 
     menuButton.addEventListener('click', () => {
       sidebar.classList.toggle('open');
     });
 
-    // Handle sidebar navigation clicks
-    const links = document.querySelectorAll('.sidebar a');
-    const learnSection = document.getElementById('learn-section');
-    const articleContent = document.getElementById('article-content');
-
     links.forEach(link => {
-      link.addEventListener('click', (e) => {
+      link.addEventListener('click', e => {
         e.preventDefault();
         const section = e.target.dataset.section;
-        loadSection(section);
+        learnSection.style.display = 'block';
+        articleContent.innerHTML = '<p>Loading content...</p>';
+        setTimeout(() => {
+          articleContent.innerHTML = {
+            'nutrition': `<h2>Nutrition</h2><p>Discover science-backed nutritional advice to fuel your body and mind.</p>`,
+            'exercise': `<h2>Exercise</h2><p>Explore effective workout routines and movement practices for a strong body.</p>`,
+            'mental-health': `<h2>Mental Health</h2><p>Improve your mental resilience and emotional wellbeing with expert guidance.</p>`
+          }[section] || '<p>Section not found.</p>';
+        }, 300);
       });
     });
-
-    function loadSection(section) {
-      learnSection.style.display = 'block';
-      articleContent.innerHTML = '<p>Loading content...</p>';
-
-      // Simulate loading content
-      setTimeout(() => {
-        switch (section) {
-          case 'nutrition':
-            articleContent.innerHTML = `
-              <h2>Nutrition</h2>
-              <p>Discover science-backed nutritional advice to fuel your body and mind.</p>
-            `;
-            break;
-          case 'exercise':
-            articleContent.innerHTML = `
-              <h2>Exercise</h2>
-              <p>Explore effective workout routines and movement practices for a strong body.</p>
-            `;
-            break;
-          case 'mental-health':
-            articleContent.innerHTML = `
-              <h2>Mental Health</h2>
-              <p>Improve your mental resilience and emotional wellbeing with expert guidance.</p>
-            `;
-            break;
-        }
-      }, 300);
-    }
 
     // Chat functionality
     const sendButton = document.getElementById('send-button');
@@ -266,17 +288,15 @@
     const chatBox = document.getElementById('chat-box');
 
     sendButton.addEventListener('click', sendMessage);
-    userInput.addEventListener('keypress', (e) => {
+    userInput.addEventListener('keypress', e => {
       if (e.key === 'Enter') sendMessage();
     });
 
     function sendMessage() {
       const message = userInput.value.trim();
       if (!message) return;
-
       appendMessage('user', message);
       userInput.value = '';
-
       setTimeout(() => {
         appendMessage('bot', generateReply(message));
       }, 500);
@@ -293,7 +313,14 @@
     function generateReply(input) {
       return "I'm your HealthyLife assistant. Let's work on your wellness goals together!";
     }
+
+    // CTA functionality
+    startChatBtn.addEventListener('click', () => {
+      chatSection.style.display = 'block';
+      chatSection.scrollIntoView({ behavior: 'smooth' });
+    });
   </script>
 </body>
 
 </html>
+
